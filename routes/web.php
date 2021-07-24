@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/x', function () {
+    printf("hello world u gotta miss me");
+
+    return view('welcome');
+});
