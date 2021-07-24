@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 
 Route::get('/x', function () {
-    printf("hello world u gotta miss me");
+    // printf("hello world u gotta miss me");
 
-    return view('welcome');
+    return ['name' => 'Danny'];
 });
