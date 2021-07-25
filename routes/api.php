@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/product', function (Request $request) {
-    echo($request);
+    return Product::all();
+});
 
-    return 'products';
+Route::post('/product', function () {
+    return Product::create(
+        [
+            'name' => 'fourth product',
+            'url' => 'url4',
+            'description' => 'This is very nice 4',
+            'price' => 50.90,
+        ]
+    );
 });
 
 
