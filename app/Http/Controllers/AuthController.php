@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -33,6 +34,19 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        //
+        //validate the fields
+        $fields = $request->validate([
+            'email' => 'string|required|email',
+            'password' => 'string|required',
+        ]);
+
+
+        $isLoggedIn =  Auth::attempt([
+            'email' => $fields["email"],
+            'password' => $fields["password"],
+        ]);
+
+        return response(["message" => $isLoggedIn]);
+        //return jwt
     }
 }
