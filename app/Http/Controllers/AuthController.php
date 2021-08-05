@@ -21,7 +21,7 @@ class AuthController extends Controller
         ]);
 
         //access the validated fields to create the new user into the db
-        $user =  User::create([
+        $user = User::create([
             "name" => $fields["name"],
             "email" => $fields["email"],
             "password" => Hash::make($fields["password"]),
@@ -41,12 +41,16 @@ class AuthController extends Controller
         ]);
 
 
-        $isLoggedIn =  Auth::attempt([
+        $isLoggedIn = Auth::attempt([
             'email' => $fields["email"],
             'password' => $fields["password"],
         ]);
 
-        return response(["message" => $isLoggedIn]);
-        //return jwt
+        if (!$isLoggedIn) {
+            return response(["message" => "Invalid email or password"], 400);
+        }
+        //create the jwt tokens
+        $token = $request->user()->createToken("token");
+        return response(['token' => $token->plainTextToken]);
     }
 }
