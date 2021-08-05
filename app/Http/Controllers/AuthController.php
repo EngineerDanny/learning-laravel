@@ -50,7 +50,7 @@ class AuthController extends Controller
             return response(["message" => "Invalid email or password"], 400);
         }
         //create the jwt tokens
-        $token = $request->user()->createToken("token");
+        $token = $request->user()->createToken($fields["email"]);
         return response(['token' => $token->plainTextToken]);
     }
 }
