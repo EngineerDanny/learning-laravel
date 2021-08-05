@@ -27,9 +27,10 @@ class AuthController extends Controller
             "password" => Hash::make($fields["password"]),
         ]);
 
-        return response($user, 200);
-
         //return the jwt token
+        //create the jwt tokens
+        $token = $user->createToken($fields["email"]);
+        return response(['token' => $token->plainTextToken]);
     }
 
     public function login(Request $request)
@@ -39,7 +40,6 @@ class AuthController extends Controller
             'email' => 'string|required|email',
             'password' => 'string|required',
         ]);
-
 
         $isLoggedIn = Auth::attempt([
             'email' => $fields["email"],
@@ -52,5 +52,13 @@ class AuthController extends Controller
         //create the jwt tokens
         $token = $request->user()->createToken($fields["email"]);
         return response(['token' => $token->plainTextToken]);
+    }
+
+    public function logout(Request $request)
+    {
+        // Revoke the token that was used to authenticate the current request...
+        $request->user()->currentAccessToken()->delete();
+        return response(['message' => "success"], 200);
+
     }
 }
