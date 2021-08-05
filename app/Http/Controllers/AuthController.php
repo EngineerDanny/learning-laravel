@@ -21,14 +21,14 @@ class AuthController extends Controller
         ]);
 
         //access the validated fields to create the new user into the db
+
         $user = User::create([
             "name" => $fields["name"],
             "email" => $fields["email"],
             "password" => Hash::make($fields["password"]),
         ]);
 
-        //return the jwt token
-        //create the jwt tokens
+        //create the jwt token
         $token = $user->createToken($fields["email"]);
         return response(['token' => $token->plainTextToken]);
     }
