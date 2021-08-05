@@ -15,7 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/products', [ProductController::class, 'index']);
-Route::post('/product', [ProductController::class, 'store']);
-Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']);
+//Protected routes
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/products', [ProductController::class, 'index']);
+    Route::post('/product', [ProductController::class, 'store']);
+}
+);
+
+//Public routes
+Route::prefix('auth')->group(function () {
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/login', [AuthController::class, 'login']);
+});
