@@ -12,20 +12,21 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         //create a new user into the db
-
+        //validate the fields in the request
         $fields = $request->validate([
-            'name' => 'required',
-            'email' => 'required|unique:users,email|max:50',
-            'password' => 'required',
+            'name' => 'string|required',
+            'email' => 'string|required|unique:users,email',
+            'password' => 'string|required',
         ]);
 
+        //access the validated fields to create the new user into the db
         $user =  User::create([
             "name" => $fields["name"],
             "email" => $fields["email"],
             "password" => Hash::make($fields["password"]),
         ]);
 
-        return  response($user, 200);
+        return response($user, 200);
 
         //return the jwt token
     }
