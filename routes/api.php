@@ -20,3 +20,4 @@ use App\Http\Controllers\ProductController;
 Route::get('/products', [ProductController::class, 'index']);
 Route::post('/product', [ProductController::class, 'store']);
 Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
