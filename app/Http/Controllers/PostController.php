@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
-use App\Models\Product;
 
-class ProductController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::all();
+        return Post::all();
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        return Product::create(
+        return Post::create(
             $request->all()
         );
     }
