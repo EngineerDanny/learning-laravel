@@ -8,6 +8,9 @@ Only Models involved should be users and images
 Command
 ```mysql.server start```     Starts MYSQL server
 ```mysql -uroot```           Shows MYSQL monitor
+```top```                    To show all processes on the computer
+```sudo killall mysqld```.   To Kill All MYSQL processes
+
 
 Run 👇 inside the monitor
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';      
