@@ -7,12 +7,13 @@ Only Models involved should be users and images
 ## MYSQL config
 Commands
 
-| ```mysql.server start```      | Starts MYSQL server                   |
-| ```mysql.server stop```       | Stops MYSQL server                     |
-| ```mysql.server restart```    | Restarts MYSQL server                  |
-| ```mysql -uroot```            | Shows MYSQL monitor                   |
-| ```top```                     | To show all processes on the computer |
-| ```sudo killall mysqld```     | To Kill All MYSQL processes           |
+| ```mysql.server start```     | Starts MYSQL server                   |
+|------------------------------|---------------------------------------|
+| ```mysql.server stop```      | Stop MYSQL server                     |
+| ```mysql.server restart```   | Restart MYSQL server                  |
+| ```mysql -uroot```           | Shows MYSQL monitor                   |
+| ```top```                    | To show all processes on the computer |
+| ```sudo killall mysqld```    | To Kill All MYSQL processes           |
 | ```composer dump-autoload``` | Autoload the app                      |
 
 
