@@ -6,7 +6,7 @@ Only Models involved should be users and images
 
 ## MYSQL config
 Command
-```mysql.server start```     Starts MYSQL server
+| ```mysql.server start``` |    Starts MYSQL server|
 ```mysql.server stop```       Stop MYSQL server
 ```mysql.server restart```       Restart MYSQL server
 ```mysql -uroot```           Shows MYSQL monitor
