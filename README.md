@@ -12,6 +12,7 @@ Command
 ```mysql -uroot```           Shows MYSQL monitor
 ```top```                    To show all processes on the computer
 ```sudo killall mysqld```.   To Kill All MYSQL processes
+``` composer dump-autoload``` Autoload the app
 
 
 Run 👇 inside the monitor
