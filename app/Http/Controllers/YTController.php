@@ -8,21 +8,29 @@ use YouTube\YouTubeDownloader;
 
 class YTController extends Controller
 {
-    //
     public function index(Request $request)
     {
         $youtube = new YouTubeDownloader();
-        try {
-            $downloadOptions = $youtube->getDownloadLinks("https://www.youtube.com/watch?v=aqz-KE-bpKQ");
-            if ($downloadOptions->getAllFormats()) {
-                echo $downloadOptions->getFirstCombinedFormat()->url;
-                return response($downloadOptions->getFirstCombinedFormat()->url);
+        $url = $request->query('url');
 
+        try {
+            $downloadOptions = $youtube->getDownloadLinks($url);
+
+            if ($downloadOptions->getAllFormats()) {
+                return response(
+                    ['link' => $downloadOptions->getFirstCombinedFormat()->url],
+                );
             } else {
-                return response('No links found');
+                return response(
+                    ['message' => 'No links found'],
+                    404
+                );
             }
         } catch (YouTubeException $e) {
-            echo 'Something went wrong: ' . $e->getMessage();
+            return response(
+                ['message' => 'Something went wrong: ' . $e->getMessage()],
+                400
+            );
         }
     }
 }
