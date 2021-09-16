@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\YTController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,3 +35,5 @@ Route::prefix('auth')->group(function () {
 Route::prefix('user')->group(function () {
     Route::post('/upload', [UserController::class, 'upload']);
 });
+
+Route::get('/youtube', [YTController::class, 'index']);
