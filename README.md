@@ -21,3 +21,12 @@ Commands
 # Run 👇 inside the monitor
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';      
 
+
+# Starting a Laravel Project
+```bash
+composer create-project laravel/laravel example-app
+ 
+cd example-app
+ 
+php artisan serve
+```
