@@ -31,8 +31,8 @@ cd example-app
 php artisan serve
 ```
 
-# Temporal UPDATE of PHP Version to support packages (MACOS)
+## Temporal UPDATE of PHP Version to support packages (MACOS)
 ```bash
-$export PATH="/usr/local/opt/php@8.1/bin:$PATH"
-$export PATH="/usr/local/opt/php@8.1/sbin:$PATH"
+export PATH="/usr/local/opt/php@8.1/bin:$PATH"
+export PATH="/usr/local/opt/php@8.1/sbin:$PATH"
 ```
